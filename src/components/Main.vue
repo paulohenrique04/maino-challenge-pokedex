@@ -1,23 +1,16 @@
 <template>
-    <div v-if="pokemon">
-        <img :src="pokemon.sprites.back_default" alt="Pokemon">
+    <div class="main">
+      <CardPokemon/>
     </div>
-</template>
-
+  </template>
+  
 <script>
-    import PokeService from '../api/service/PokeService';
+  import CardPokemon from './CardPokemon.vue';
 
-    export default {
-        data() {
-            return {
-                pokemon: null,
-                type: null
-            }
-        },
-        async mounted() {
-            this.pokemon = await PokeService.fetchPokemon('pikachu')
-            this.type = await PokeService.fetchType(3)
-            console.log(this.pokemon)
-        }
+  export default {
+    components: { 
+      CardPokemon
     }
+  };
 </script>
+  

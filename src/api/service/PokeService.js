@@ -16,8 +16,8 @@ export default class PokeService {
         return response.data;
     }
     
-    static async fetchAllPokemon() {
-        const response = await PokeApi.getAllPokemons();
+    static async fetchAllPokemon(limit = 20, offset = 0) {
+        const response = await PokeApi.getAllPokemons(limit, offset);
         return response.data.results;
     }
 }
