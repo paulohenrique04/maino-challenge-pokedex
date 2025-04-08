@@ -20,4 +20,9 @@ export default class PokeService {
         const response = await PokeApi.getAllPokemons(limit, offset);
         return response.data.results;
     }
+
+    static async fetchEvolutionChainPokemon(id) {
+        const response = await PokeApi.getEvolutionChainPokemon(id)
+        return response.data
+    }
 }

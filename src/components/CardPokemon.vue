@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <ModalPokemon :pokemon="selectedPokemon" v-if="selectedPokemon"/>
+        <ModalPokemon/>
     </div>
 </template>
 
@@ -38,9 +38,9 @@ export default {
         ModalPokemon
     },
     setup() {
-        const store = useStore();
-        const allPokemonsLoaded = ref(false);
-        const isLoadingMore = ref(false);
+        const store = useStore()
+        const allPokemonsLoaded = ref(false)
+        const isLoadingMore = ref(false)
 
         const loadPokemons = async (limit, offset = 0) => {
             try {
@@ -99,12 +99,16 @@ export default {
             });
         });
 
+        const selectPokemon = (pok) => {
+            store.commit('setSelectedPokemon', pok)
+        }
+
         return {
             filteredPokemons,
             selectedPokemon: computed(() => store.getters.selectedPokemon),
             loading: computed(() => store.getters.isLoading),
             allPokemonsLoaded,
-            selectPokemon: (pokemon) => store.commit('setSelectedPokemon', pokemon),
+            selectPokemon,
             handleScroll
         };
     }

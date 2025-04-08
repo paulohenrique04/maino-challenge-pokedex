@@ -18,5 +18,9 @@ export default class PokeApi {
     static async getAllPokemons(limit = 20, offset = 0) {
         return axios.get(`${BASE_URL}pokemon?limit=${limit}&offset=${offset}`)
     }
+
+    static async getEvolutionChainPokemon(id) {
+        return axios.get(`${BASE_URL}evolution-chain/${id}/`)
+    }
 }
 

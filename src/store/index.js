@@ -5,6 +5,7 @@ export default createStore({
         pokemons: [],
         filteredPokemons: [],
         selectedPokemon: null,
+        evolutionsPokemon: null,
         namePokemonFilter: null,
         typePokemonFilter: null,
         idPokemonFilter: null,
@@ -16,6 +17,9 @@ export default createStore({
     mutations: {
         setPokemons(state, poks) {
             state.pokemons = poks
+        },
+        setEvolutions(state, evolutions) {
+            state.evolutions = evolutions
         },
         setFilteredPokemons(state, pokemons) {
             state.filteredPokemons = pokemons
@@ -47,6 +51,7 @@ export default createStore({
     },
     getters: {
         pokemons: (state) => state.pokemons,
+        evolutions: (state) => state.evolutions,
         isLoading: (state) => state.loading,
         currentPokemon: (state) => state.selectedPokemon,
         nameFilter: (state) => state.namePokemonFilter,
