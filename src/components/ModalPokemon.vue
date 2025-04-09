@@ -4,7 +4,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title text-capitalize" id="pokemonModalLabel">{{ selectedPokemon?.name || 'Pokémon' }}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="closeModal"></button>
           </div>
           <div class="modal-body">
             <div v-if="selectedPokemon" class="row">
@@ -20,12 +20,12 @@
                 <div class="mb-3">
                   <h6>Details</h6>
                   <p><strong>ID:</strong> #{{ String(selectedPokemon.id).padStart(3, '0') }}</p>
-                  <p><strong>Height:</strong> {{ selectedPokemon.height / 10 }} m</p>
-                  <p><strong>Weight:</strong> {{ selectedPokemon.weight / 10 }} kg</p>
+                  <p><strong>Altura:</strong> {{ selectedPokemon.height / 10 }} m</p>
+                  <p><strong>Peso:</strong> {{ selectedPokemon.weight / 10 }} kg</p>
                 </div>
                 
                 <div class="mb-3">
-                  <h6>Abilities</h6>
+                  <h6>Habilidades</h6>
                   <ul class="list-unstyled">
                     <li v-for="ability in selectedPokemon.abilities" :key="ability.ability.name" class="text-capitalize">
                       {{ ability.ability.name }}
@@ -54,30 +54,130 @@
                 </div>
               </div>
 
-              <!-- Seção de Sprites -->
               <div class="col-12 mt-4">
                 <h6>Sprites</h6>
-                <div class="row text-center">
-                  <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_default">
-                    <p>Front Default</p>
-                    <img :src="selectedPokemon.sprites.front_default" class="img-fluid sprite-img">
+                <div class="row">
+
+                  <div class="col-12">
+                    <h6 class="fs-6 text-muted">Default</h6>
+                    <div class="row text-center">
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_default">
+                        <p>Front Default</p>
+                        <img :src="selectedPokemon.sprites.front_default" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_default">
+                        <p>Back Default</p>
+                        <img :src="selectedPokemon.sprites.back_default" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_female">
+                        <p>Front Female</p>
+                        <img :src="selectedPokemon.sprites.front_female" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_female">
+                        <p>Back Female</p>
+                        <img :src="selectedPokemon.sprites.back_female" class="img-fluid sprite-img">
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_default">
-                    <p>Back Default</p>
-                    <img :src="selectedPokemon.sprites.back_default" class="img-fluid sprite-img">
+
+                  <div class="col-12" v-if="selectedPokemon.sprites.front_shiny || selectedPokemon.sprites.back_shiny">
+                    <h6 class="fs-6 text-muted">Shiny</h6>
+                    <div class="row text-center">
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_shiny">
+                        <p>Front Shiny</p>
+                        <img :src="selectedPokemon.sprites.front_shiny" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_shiny">
+                        <p>Back Shiny</p>
+                        <img :src="selectedPokemon.sprites.back_shiny" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_shiny_female">
+                        <p>Front Shiny Female</p>
+                        <img :src="selectedPokemon.sprites.front_shiny_female" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_shiny_female">
+                        <p>Back Shiny Female</p>
+                        <img :src="selectedPokemon.sprites.back_shiny_female" class="img-fluid sprite-img">
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_shiny">
-                    <p>Front Shiny</p>
-                    <img :src="selectedPokemon.sprites.front_shiny" class="img-fluid sprite-img">
+
+                  <div class="col-12" v-if="selectedPokemon.sprites.other?.dream_world?.front_default">
+                    <h6 class="fs-6 text-muted">Dream World</h6>
+                    <div class="row text-center">
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.dream_world.front_default">
+                        <p>Front Default</p>
+                        <img :src="selectedPokemon.sprites.other.dream_world.front_default" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.dream_world.front_female">
+                        <p>Front Female</p>
+                        <img :src="selectedPokemon.sprites.other.dream_world.front_female" class="img-fluid sprite-img">
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_shiny">
-                    <p>Back Shiny</p>
-                    <img :src="selectedPokemon.sprites.back_shiny" class="img-fluid sprite-img">
+
+                  <div class="col-12" v-if="selectedPokemon.sprites.other?.home?.front_default">
+                    <h6 class="fs-6 text-muted">Home</h6>
+                    <div class="row text-center">
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_default">
+                        <p>Front Default</p>
+                        <img :src="selectedPokemon.sprites.other.home.front_default" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_female">
+                        <p>Front Female</p>
+                        <img :src="selectedPokemon.sprites.other.home.front_female" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_shiny">
+                        <p>Front Shiny</p>
+                        <img :src="selectedPokemon.sprites.other.home.front_shiny" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_shiny_female">
+                        <p>Front Shiny Female</p>
+                        <img :src="selectedPokemon.sprites.other.home.front_shiny_female" class="img-fluid sprite-img">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12" v-if="selectedPokemon.sprites.other?.showdown?.front_default">
+                    <h6 class="fs-6 text-muted">Showdown</h6>
+                    <div class="row text-center">
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_default">
+                        <p>Front Default</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.front_default" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_default">
+                        <p>Back Default</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.back_default" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_female">
+                        <p>Front Female</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.front_female" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_female">
+                        <p>Back Female</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.back_female" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_shiny">
+                        <p>Front Shiny</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.front_shiny" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_shiny">
+                        <p>Back Shiny</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.back_shiny" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_shiny_female">
+                        <p>Front Shiny Female</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.front_shiny_female" class="img-fluid sprite-img">
+                      </div>
+                      <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_shiny_female">
+                        <p>Back Shiny Female</p>
+                        <img :src="selectedPokemon.sprites.other.showdown.back_shiny_female" class="img-fluid sprite-img">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Seção de Movimentos -->
               <div class="col-12 mt-4" v-if="selectedPokemon.moves && selectedPokemon.moves.length > 0">
                 <h6>Moves</h6>
                 <div class="moves-container">
@@ -87,7 +187,6 @@
                 </div>
               </div>
 
-              <!-- Seção de Jogos -->
               <div class="col-12 mt-4" v-if="selectedPokemon.game_indices && selectedPokemon.game_indices.length > 0">
                 <h6>Games Appearance</h6>
                 <div class="games-container">
@@ -97,9 +196,8 @@
                 </div>
               </div>
 
-              <!-- Seção de Evolução -->
               <div class="col-12 mt-4" v-if="evolutions && evolutions.length > 0"> 
-                <h6>Evolution Chain</h6>
+                <h6>Linha Evolutiva</h6>
                 <div class="evolution-chain">
                     <div v-for="(evolution, index) in evolutions" :key="index" class="evolution-stage">
                         <div class="evolution-pokemon">
@@ -174,72 +272,12 @@
                     currentEvolutions = evolution.evolves_to;
                 }
                 return data;
+            },
+            closeModal() {
+              this.$store.commit("setSelectedPokemon", null)
             }
         }
     }
 </script>
-  
-  <style scoped>
-  .bg-grass { background-color: #78c850; }
-  .bg-poison { background-color: #a040a0; }
-  .bg-fire { background-color: #f08030; }
-  .bg-flying { background-color: #a890f0; }
-  .bg-water { background-color: #6890f0; }
-  .bg-bug { background-color: #a8b820; }
-  .bg-normal { background-color: #a8a878; }
-  .bg-electric { background-color: #f8d030; }
-  .bg-ground { background-color: #e0c068; }
-  .bg-fairy { background-color: #ee99ac; }
-  .bg-fighting { background-color: #c03028; }
-  .bg-psychic { background-color: #f85888; }
-  .bg-rock { background-color: #b8a038; }
-  .bg-ghost { background-color: #705898; }
-  .bg-ice { background-color: #98d8d8; }
-  .bg-dragon { background-color: #7038f8; }
-  .bg-dark { background-color: #705848; }
-  .bg-steel { background-color: #b8b8d0; }
 
-  .evolution-chain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .evolution-stage {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .evolution-pokemon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .evolution-sprite {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-  }
-
-  .evolution-name {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .evolution-arrow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .evolution-condition {
-    font-size: 0.7rem;
-    text-align: center;
-    max-width: 100px;
-  }
-  </style>
+<style src="../style.css"></style>

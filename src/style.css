@@ -1,0 +1,81 @@
+.bg-grass { background-color: #78c850; }
+.bg-poison { background-color: #a040a0; }
+.bg-fire { background-color: #f08030; }
+.bg-flying { background-color: #a890f0; }
+.bg-water { background-color: #6890f0; }
+.bg-bug { background-color: #a8b820; }
+.bg-normal { background-color: #a8a878; }
+.bg-electric { background-color: #f8d030; }
+.bg-ground { background-color: #e0c068; }
+.bg-fairy { background-color: #ee99ac; }
+.bg-fighting { background-color: #c03028; }
+.bg-psychic { background-color: #f85888; }
+.bg-rock { background-color: #b8a038; }
+.bg-ghost { background-color: #705898; }
+.bg-ice { background-color: #98d8d8; }
+.bg-dragon { background-color: #7038f8; }
+.bg-dark { background-color: #705848; }
+.bg-steel { background-color: #b8b8d0; }
+
+/* .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    min-width: 120px;
+}
+
+.btn {
+    white-space: nowrap;
+} */
+
+@media (max-width: 991.98px) {
+    .form-group {
+        width: 100%;
+    }
+}
+
+.evolution-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.evolution-stage {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.evolution-pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.evolution-sprite {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.evolution-name {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.evolution-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.evolution-condition {
+    font-size: 0.7rem;
+    text-align: center;
+    max-width: 100px;
+}

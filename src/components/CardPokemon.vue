@@ -1,9 +1,9 @@
 <template>
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
         <div id="scrollContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4" style="max-height: 90vh; overflow-y: auto;" @scroll="handleScroll">
             <div v-for="pokemon in filteredPokemons" :key="pokemon.id" class="col">
                 <div class="card h-100 shadow-sm hover-shadow" data-bs-toggle="modal" @click="selectPokemon(pokemon)" style="cursor: pointer;">
-                    <img :src="pokemon.sprites.other.dream_world.front_default || pokemon.sprites.front_default" :alt="pokemon.name" class="card-img-top img-fluid p-3" style="height: 150px; object-fit: contain;">
+                    <img :src="pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default" :alt="pokemon.name" class="card-img-top img-fluid p-3" style="height: 150px; object-fit: contain;">
                     <div class="card-body text-center">
                         <h5 class="card-title text-capitalize">{{ pokemon.name }}</h5>
                         <p class="text-muted">#{{ String(pokemon.id).padStart(3, '0') }}</p>
@@ -115,23 +115,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.bg-grass { background-color: #78c850; }
-.bg-poison { background-color: #a040a0; color: white; }
-.bg-fire { background-color: #f08030; }
-.bg-flying { background-color: #a890f0; }
-.bg-water { background-color: #6890f0; color: white; }
-.bg-bug { background-color: #a8b820; }
-.bg-normal { background-color: #a8a878; }
-.bg-electric { background-color: #f8d030; }
-.bg-ground { background-color: #e0c068; }
-.bg-fairy { background-color: #ee99ac; }
-.bg-fighting { background-color: #c03028; color: white; }
-.bg-psychic { background-color: #f85888; color: white; }
-.bg-rock { background-color: #b8a038; }
-.bg-steel { background-color: #b8b8d0; }
-.bg-ice { background-color: #98d8d8; }
-.bg-ghost { background-color: #705898; color: white; }
-.bg-dragon { background-color: #7038f8; color: white; }
-.bg-dark { background-color: #705848; color: white; }
-</style>
+<style src="../style.css"></style>
