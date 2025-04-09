@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div>
+  <div id="app-container" class="d-flex flex-column" style="height: 100vh; overflow-y: auto;">
     <NavBar/>
     <CardPokemon />
   </div>

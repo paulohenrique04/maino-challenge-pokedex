@@ -226,7 +226,8 @@
         name: 'ModalPokemon',
         data() {
             return {
-                evolutions: []
+                evolutions: [],
+                modal: null
             }
         },
         computed: {
@@ -241,6 +242,14 @@
                     this.fetchEvolutionChain(pok)
                 }
             }
+        },
+        mounted() {
+            const modalElement = document.getElementById('pokemonModal');
+            this.modal = new Modal(modalElement);
+            
+            modalElement.addEventListener('hidden.bs.modal', () => {
+                this.closeModal();
+            });
         },
         methods: {
             async fetchEvolutionChain(pok) {
