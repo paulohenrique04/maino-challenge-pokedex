@@ -17,7 +17,7 @@
 .bg-dark { background-color: #705848; }
 .bg-steel { background-color: #b8b8d0; }
 
-/* .navbar-brand {
+.navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -28,7 +28,7 @@
 
 .btn {
     white-space: nowrap;
-} */
+}
 
 @media (max-width: 991.98px) {
     .form-group {

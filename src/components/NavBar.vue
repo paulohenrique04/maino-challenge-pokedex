@@ -5,8 +5,7 @@
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
+        @click="handleNavBarOpen"
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
@@ -14,7 +13,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav" :class="{ show: isNavBarOpen }">
         <form class="d-flex flex-column flex-lg-row gap-2 w-100">
           <div class="form-group">
             <input 
@@ -76,11 +75,13 @@
   
 <script>
   import { useStore } from 'vuex';
+  import { ref } from 'vue';
 
   export default {
     name: "Navbar",
     setup() {
       const store = useStore()
+      const isNavBarOpen = ref(false)
       const filters = {
         name: '',
         id: '',
@@ -95,7 +96,13 @@
         store.commit('setSpeciePokemonFilter', filters.species)
       }
 
+      const handleNavBarOpen = () => {
+        isNavBarOpen.value = !isNavBarOpen.value
+      }
+
       return {
+        isNavBarOpen,
+        handleNavBarOpen,
         filters,
         applyFilters
       }
