@@ -18,4 +18,4 @@ Este projeto é uma Pokédex digital desenvolvida como parte do meu aprendizado 
 ![PÁGINA HOME](./src/assets/HOME.png)
 
 # Upload do Site
-Acesse a aplicação hospedada com o vercel: <a href="[https://pokeapi.co/#google_vignette](https://maino-challenge-pokedex.vercel.app/)">Pokedex</a>
+Acesse a aplicação hospedada com o vercel: <a href="https://maino-challenge-pokedex.vercel.app/">Pokedex</a>
