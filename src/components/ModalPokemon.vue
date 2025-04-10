@@ -18,7 +18,7 @@
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
-                  <h6>Details</h6>
+                  <h6>{{ $t('datails') }}</h6>
                   <p><strong>ID:</strong> #{{ String(selectedPokemon.id).padStart(3, '0') }}</p>
                   <p><strong>{{ $t('height') }}:</strong> {{ selectedPokemon.height / 10 }} m</p>
                   <p><strong>{{ $t('weight') }}:</strong> {{ selectedPokemon.weight / 10 }} kg</p>

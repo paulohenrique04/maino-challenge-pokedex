@@ -2,6 +2,7 @@
     "name": "Nome",
     "type": "Tipo",
     "species": "Espécie",
+    "datails": "Detalhes",
     "filter": "Filtrar",
     "height": "Altura",
     "weight": "Peso",
