@@ -20,12 +20,12 @@
                 <div class="mb-3">
                   <h6>Details</h6>
                   <p><strong>ID:</strong> #{{ String(selectedPokemon.id).padStart(3, '0') }}</p>
-                  <p><strong>Altura:</strong> {{ selectedPokemon.height / 10 }} m</p>
-                  <p><strong>Peso:</strong> {{ selectedPokemon.weight / 10 }} kg</p>
+                  <p><strong>{{ $t('height') }}:</strong> {{ selectedPokemon.height / 10 }} m</p>
+                  <p><strong>{{ $t('weight') }}:</strong> {{ selectedPokemon.weight / 10 }} kg</p>
                 </div>
                 
                 <div class="mb-3">
-                  <h6>Habilidades</h6>
+                  <h6>{{ $t('skills') }}</h6>
                   <ul class="list-unstyled">
                     <li v-for="ability in selectedPokemon.abilities" :key="ability.ability.name" class="text-capitalize">
                       {{ ability.ability.name }}
@@ -62,19 +62,19 @@
                     <h6 class="fs-6 text-muted">Default</h6>
                     <div class="row text-center">
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_default">
-                        <p>Front Default</p>
+                        <p>{{ $t('frontDefault') }}</p>
                         <img :src="selectedPokemon.sprites.front_default" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_default">
-                        <p>Back Default</p>
+                        <p>{{ $t('backDefault') }}</p>
                         <img :src="selectedPokemon.sprites.back_default" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_female">
-                        <p>Front Female</p>
+                        <p>{{ $t('frontFemale') }}</p>
                         <img :src="selectedPokemon.sprites.front_female" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_female">
-                        <p>Back Female</p>
+                        <p>{{ $t('backFemale') }}</p>
                         <img :src="selectedPokemon.sprites.back_female" class="img-fluid sprite-img">
                       </div>
                     </div>
@@ -84,19 +84,19 @@
                     <h6 class="fs-6 text-muted">Shiny</h6>
                     <div class="row text-center">
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_shiny">
-                        <p>Front Shiny</p>
+                        <p>{{ $t('frontShiny') }}</p>
                         <img :src="selectedPokemon.sprites.front_shiny" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_shiny">
-                        <p>Back Shiny</p>
+                        <p>{{ $t('backShiny') }}</p>
                         <img :src="selectedPokemon.sprites.back_shiny" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.front_shiny_female">
-                        <p>Front Shiny Female</p>
+                        <p>{{ $t('frontShinyFemale') }}</p>
                         <img :src="selectedPokemon.sprites.front_shiny_female" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.back_shiny_female">
-                        <p>Back Shiny Female</p>
+                        <p>{{ $t('backShinyFemale') }}</p>
                         <img :src="selectedPokemon.sprites.back_shiny_female" class="img-fluid sprite-img">
                       </div>
                     </div>
@@ -106,11 +106,11 @@
                     <h6 class="fs-6 text-muted">Dream World</h6>
                     <div class="row text-center">
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.dream_world.front_default">
-                        <p>Front Default</p>
+                        <p>{{ $t('frontDefault') }}</p>
                         <img :src="selectedPokemon.sprites.other.dream_world.front_default" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.dream_world.front_female">
-                        <p>Front Female</p>
+                        <p>{{ $t('frontDefault') }}</p>
                         <img :src="selectedPokemon.sprites.other.dream_world.front_female" class="img-fluid sprite-img">
                       </div>
                     </div>
@@ -120,19 +120,19 @@
                     <h6 class="fs-6 text-muted">Home</h6>
                     <div class="row text-center">
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_default">
-                        <p>Front Default</p>
+                        <p>{{ $t('frontDefault') }}</p>
                         <img :src="selectedPokemon.sprites.other.home.front_default" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_female">
-                        <p>Front Female</p>
+                        <p>{{ $t('frontDefault') }}</p>
                         <img :src="selectedPokemon.sprites.other.home.front_female" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_shiny">
-                        <p>Front Shiny</p>
+                        <p>{{ $t('frontShiny') }}</p>
                         <img :src="selectedPokemon.sprites.other.home.front_shiny" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.home.front_shiny_female">
-                        <p>Front Shiny Female</p>
+                        <p>{{ $t('frontShinyFemale') }}</p>
                         <img :src="selectedPokemon.sprites.other.home.front_shiny_female" class="img-fluid sprite-img">
                       </div>
                     </div>
@@ -142,35 +142,35 @@
                     <h6 class="fs-6 text-muted">Showdown</h6>
                     <div class="row text-center">
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_default">
-                        <p>Front Default</p>
+                        <p>{{ $t('frontDefault') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.front_default" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_default">
-                        <p>Back Default</p>
+                        <p>{{ $t('backDefault') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.back_default" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_female">
-                        <p>Front Female</p>
+                        <p>{{ $t('frontFemale') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.front_female" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_female">
-                        <p>Back Female</p>
+                        <p>{{ $t('backFemale') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.back_female" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_shiny">
-                        <p>Front Shiny</p>
+                        <p>{{ $t('frontShiny') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.front_shiny" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_shiny">
-                        <p>Back Shiny</p>
+                        <p>{{ $t('backShiny') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.back_shiny" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.front_shiny_female">
-                        <p>Front Shiny Female</p>
+                        <p>{{ $t('frontShinyFemale') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.front_shiny_female" class="img-fluid sprite-img">
                       </div>
                       <div class="col-6 col-md-3 mb-3" v-if="selectedPokemon.sprites.other.showdown.back_shiny_female">
-                        <p>Back Shiny Female</p>
+                        <p>{{ $t('backShinyFemale') }}</p>
                         <img :src="selectedPokemon.sprites.other.showdown.back_shiny_female" class="img-fluid sprite-img">
                       </div>
                     </div>
@@ -179,7 +179,7 @@
               </div>
 
               <div class="col-12 mt-4" v-if="selectedPokemon.moves && selectedPokemon.moves.length > 0">
-                <h6>Moves</h6>
+                <h6>{{ $t('moves') }}</h6>
                 <div class="moves-container">
                   <span v-for="(move, index) in selectedPokemon.moves" :key="index" class="badge bg-secondary me-2 mb-2 text-capitalize">
                     {{ move.move.name.replace('-', ' ') }}
@@ -188,7 +188,7 @@
               </div>
 
               <div class="col-12 mt-4" v-if="selectedPokemon.game_indices && selectedPokemon.game_indices.length > 0">
-                <h6>Games Appearance</h6>
+                <h6>{{ $t('gamesAppearence') }}</h6>
                 <div class="games-container">
                   <span v-for="(game, index) in selectedPokemon.game_indices" :key="index" class="badge bg-primary me-2 mb-2 text-capitalize">
                     {{ game.version.name.replace('-', ' ') }}
@@ -197,7 +197,7 @@
               </div>
 
               <div class="col-12 mt-4" v-if="evolutions && evolutions.length > 0"> 
-                <h6>Linha Evolutiva</h6>
+                <h6>{{ $t('evolutionChain') }}</h6>
                 <div class="evolution-chain">
                     <div v-for="(evolution, index) in evolutions" :key="index" class="evolution-stage">
                         <div class="evolution-pokemon">
@@ -221,9 +221,14 @@
     import { Modal } from 'bootstrap';
     import { mapState } from 'vuex';
     import PokeService from '../api/service/PokeService';
+    import { useI18n } from 'vue-i18n';
 
     export default {
         name: 'ModalPokemon',
+        setup() {
+          const { t } = useI18n
+          return t
+        },
         data() {
             return {
                 evolutions: [],

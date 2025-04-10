@@ -19,7 +19,7 @@
             <input 
               type="text" 
               class="form-control" 
-              placeholder="Nome" 
+              :placeholder="$t('name')" 
               v-model="filters.name"
             >
           </div>
@@ -34,25 +34,10 @@
           </div>
           <div class="form-group">
             <select class="form-control" v-model="filters.type">
-              <option value="">Todos os Tipos</option>
-                <option value="normal">Normal</option>
-                <option value="fire">Fogo</option>
-                <option value="water">Água</option>
-                <option value="grass">Grama</option>
-                <option value="electric">Elétrico</option>
-                <option value="ice">Gelo</option>
-                <option value="fighting">Lutador</option>
-                <option value="poison">Venenoso</option>
-                <option value="ground">Terrestre</option>
-                <option value="flying">Voador</option>
-                <option value="psychic">Psíquico</option>
-                <option value="bug">Inseto</option>
-                <option value="rock">Pedra</option>
-                <option value="ghost">Fantasma</option>
-                <option value="dragon">Dragão</option>
-                <option value="dark">Noturno</option>
-                <option value="steel">Metálico</option>
-                <option value="fairy">Fada</option>
+              <option value="">{{ $t('types.allTypes') }}</option>
+              <option v-for="type in pokemonTypes" :key="type.value" :value="type.value">
+                {{ $t(`types.${type.value}`) }}
+              </option>
             </select>
           </div>
           <div class="form-group">
@@ -64,9 +49,17 @@
             >
           </div>
           <button class="btn btn-light" type="button" @click="applyFilters">
-            Filtrar
+            {{ $t('filter') }}
           </button>
         </form>
+
+        <div class="ms-lg-3 mt-2 mt-lg-0">
+          <select class="form-select" v-model="$i18n.locale">
+            <option value="pt-BR">Português (BR)</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -76,10 +69,32 @@
 <script>
   import { useStore } from 'vuex';
   import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
   export default {
     name: "Navbar",
     setup() {
+      const { t, locale } = useI18n
+      const pokemonTypes = [
+        { value: "normal"},
+        { value:"fire" },
+        { value:"water" },
+        { value:"grass" },
+        { value:"electric" },
+        { value:"ice" },
+        { value:"fighting" },
+        { value:"poison" },
+        { value:"ground" },
+        { value:"flying" },
+        { value:"psychic" },
+        { value:"bug" },
+        { value:"rock" },
+        { value:"ghost" },
+        { value:"dragon" },
+        { value:"dark" },
+        { value:"steel" },
+        { value:"fairy" },
+      ]
       const store = useStore()
       const isNavBarOpen = ref(false)
       const filters = {
@@ -104,7 +119,10 @@
         isNavBarOpen,
         handleNavBarOpen,
         filters,
-        applyFilters
+        applyFilters,
+        t,
+        locale,
+        pokemonTypes
       }
     }
     
