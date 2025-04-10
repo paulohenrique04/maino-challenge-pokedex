@@ -15,4 +15,4 @@ Este projeto é uma Pokédex digital desenvolvida como parte do meu aprendizado 
 - Vuex para gerenciamento de estado de variáveis.
 
 # 📸 Imagens do Projeto
-
+![PÁGINA HOME](./assets/HOME.png)
