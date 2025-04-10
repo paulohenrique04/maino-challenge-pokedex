@@ -15,4 +15,7 @@ Este projeto é uma Pokédex digital desenvolvida como parte do meu aprendizado 
 - Vuex para gerenciamento de estado de variáveis.
 
 # 📸 Imagens do Projeto
-![PÁGINA HOME](./assets/HOME.png)
+![PÁGINA HOME](./src/assets/HOME.png)
+
+# Upload do Site
+Acesse a aplicação hospedada com o vercel: <a href="[https://pokeapi.co/#google_vignette](https://maino-challenge-pokedex.vercel.app/)">Pokedex</a>
