@@ -34,25 +34,25 @@
           </div>
           <div class="form-group">
             <select class="form-control" v-model="filters.type">
-              <option value="">{{ $t('types.allTypes') }}</option>
-              <option value="normal">{{ $t('types.normal') }}</option>
-              <option value="fire">{{ $t('types.fire') }}</option>
-              <option value="water">{{ $t('types.water') }}</option>
-              <option value="grass">{{ $t('types.grass') }}</option>
-              <option value="electric">{{ $t('types.electric') }}</option>
-              <option value="ice">{{ $t('types.ice') }}</option>
-              <option value="fighting">{{ $t('types.fighting') }}</option>
-              <option value="poison">{{ $t('types.poison') }}</option>
-              <option value="ground">{{ $t('types.ground') }}</option>
-              <option value="flying">{{ $t('types.flying') }}</option>
-              <option value="psychic">{{ $t('types.psychic') }}</option>
-              <option value="bug">{{ $t('types.bug') }}</option>
-              <option value="rock">{{ $t('types.rock') }}</option>
-              <option value="ghost">{{ $t('types.ghost') }}</option>
-              <option value="dragon">{{ $t('types.dragon') }}</option>
-              <option value="dark">{{ $t('types.dark') }}</option>
-              <option value="steel">{{ $t('types.steel') }}</option>
-              <option value="fairy">{{ $t('types.fairy') }}</option>
+              <option value="">{{ $t('allTypes') }}</option>
+              <option value="normal">{{ $t('normal') }}</option>
+              <option value="fire">{{ $t('fire') }}</option>
+              <option value="water">{{ $t('water') }}</option>
+              <option value="grass">{{ $t('grass') }}</option>
+              <option value="electric">{{ $t('electric') }}</option>
+              <option value="ice">{{ $t('ice') }}</option>
+              <option value="fighting">{{ $t('fighting') }}</option>
+              <option value="poison">{{ $t('poison') }}</option>
+              <option value="ground">{{ $t('ground') }}</option>
+              <option value="flying">{{ $t('flying') }}</option>
+              <option value="psychic">{{ $t('psychic') }}</option>
+              <option value="bug">{{ $t('bug') }}</option>
+              <option value="rock">{{ $t('rock') }}</option>
+              <option value="ghost">{{ $t('ghost') }}</option>
+              <option value="dragon">{{ $t('dragon') }}</option>
+              <option value="dark">{{ $t('dark') }}</option>
+              <option value="steel">{{ $t('steel') }}</option>
+              <option value="fairy">{{ $t('fairy') }}</option>
             </select>
           </div>
           <div class="form-group">
@@ -90,26 +90,6 @@ import { useI18n } from 'vue-i18n';
     name: "Navbar",
     setup() {
       const { t, locale } = useI18n
-      const pokemonTypes = [
-        { value: "normal"},
-        { value:"fire" },
-        { value:"water" },
-        { value:"grass" },
-        { value:"electric" },
-        { value:"ice" },
-        { value:"fighting" },
-        { value:"poison" },
-        { value:"ground" },
-        { value:"flying" },
-        { value:"psychic" },
-        { value:"bug" },
-        { value:"rock" },
-        { value:"ghost" },
-        { value:"dragon" },
-        { value:"dark" },
-        { value:"steel" },
-        { value:"fairy" },
-      ]
       const store = useStore()
       const isNavBarOpen = ref(false)
       const filters = {
@@ -136,8 +116,7 @@ import { useI18n } from 'vue-i18n';
         filters,
         applyFilters,
         t,
-        locale,
-        pokemonTypes
+        locale
       }
     }
     
