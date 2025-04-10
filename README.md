@@ -1,5 +1,18 @@
-# Vue 3 + Vite
+# 📌 Pokedex
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Este projeto é uma Pokédex digital desenvolvida como parte do meu aprendizado em desenvolvimento web. A aplicação consome a <a href="https://pokeapi.co/#google_vignette">PokéAPI</a> para exibir informações sobre diversos Pokémon, incluindo suas características, tipos, estatísticas e evoluções.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+# ✨ Funcionalidades
+- Listagem de Pokemons com scroll infinito.
+- Filtragem de pokemons com base por nome, ID, tipos e espécies.
+- Visualização detalhada de cada pokemon (stats, golpes, linha evolutiva, aparição em jogos, etc).
+- Responsividade para dispositivos mobile.
+
+# 🛠 Tecnologias Utilizadas
+- HTML, CSS, Bootstrap, Vue 3
+- i18n para a internacionalização em pt-BR, en e es.
+- Vitest para testes automatizados.
+- Vuex para gerenciamento de estado de variáveis.
+
+# 📸 Imagens do Projeto
+
