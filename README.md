@@ -14,7 +14,7 @@ Este projeto é uma Pokédex digital desenvolvida como parte do meu aprendizado 
 - Vitest para testes automatizados.
 - Vuex para gerenciamento de estado de variáveis.
 
-# 📸 Imagens do Projeto
+# 📸 Imagem do Projeto
 ![PÁGINA HOME](./src/assets/HOME.png)
 
 # Upload do Site
