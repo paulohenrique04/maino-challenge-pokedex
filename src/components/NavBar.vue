@@ -35,9 +35,24 @@
           <div class="form-group">
             <select class="form-control" v-model="filters.type">
               <option value="">{{ $t('types.allTypes') }}</option>
-              <option v-for="type in pokemonTypes" :key="type.value" :value="type.value">
-                {{ $t(`types.${type.value}`) }}
-              </option>
+              <option value="normal">{{ $t('types.normal') }}</option>
+              <option value="fire">{{ $t('types.fire') }}</option>
+              <option value="water">{{ $t('types.water') }}</option>
+              <option value="grass">{{ $t('types.grass') }}</option>
+              <option value="electric">{{ $t('types.electric') }}</option>
+              <option value="ice">{{ $t('types.ice') }}</option>
+              <option value="fighting">{{ $t('types.fighting') }}</option>
+              <option value="poison">{{ $t('types.poison') }}</option>
+              <option value="ground">{{ $t('types.ground') }}</option>
+              <option value="flying">{{ $t('types.flying') }}</option>
+              <option value="psychic">{{ $t('types.psychic') }}</option>
+              <option value="bug">{{ $t('types.bug') }}</option>
+              <option value="rock">{{ $t('types.rock') }}</option>
+              <option value="ghost">{{ $t('types.ghost') }}</option>
+              <option value="dragon">{{ $t('types.dragon') }}</option>
+              <option value="dark">{{ $t('types.dark') }}</option>
+              <option value="steel">{{ $t('types.steel') }}</option>
+              <option value="fairy">{{ $t('types.fairy') }}</option>
             </select>
           </div>
           <div class="form-group">
